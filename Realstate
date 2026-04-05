@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTATE ELITE | Bespoke Real Estate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent: #d4af37; }
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; background-color: #050505; color: white; overflow-x: hidden; }
+        h1, h2, h3, .brand { font-family: 'Cinzel', serif; }
+        
+        /* Entrance Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Preloader */
+        #loader {
+            position: fixed; inset: 0; background: #000; z-index: 9999;
+            display: flex; justify-content: center; items-center; transition: opacity 1s ease;
+        }
+        .loader-line { width: 1px; height: 50px; background: var(--accent); animation: scaleY 1.5s infinite ease-in-out; }
+        @keyframes scaleY { 0%, 100% { transform: scaleY(0); } 50% { transform: scaleY(1); } }
+
+        .gold-text { color: var(--accent); }
+        .gold-bg { background-color: var(--accent); }
+        .parallax { background-attachment: fixed; background-position: center; background-size: cover; }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="text-center">
+            <div class="loader-line mx-auto mb-4"></div>
+            <div class="brand tracking-[0.5em] gold-text text-sm animate-pulse">ESTATE ELITE</div>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 px-10 py-8 flex justify-between items-center transition-all duration-700" id="navbar">
+        <div class="brand text-2xl font-bold tracking-[0.3em] gold-text">ESTATE ELITE</div>
+        <div class="hidden lg:flex space-x-12 text-[10px] uppercase tracking-[0.3em] font-light">
+            <a href="#properties" class="hover:text-gold-text">Collections</a>
+            <a href="#about" class="hover:text-gold-text">Heritage</a>
+            <a href="#contact" class="gold-text border-b border-gold pb-1">Inquire</a>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" 
+                 class="w-full h-full object-cover opacity-40 scale-110 transition-transform duration-[5s]" id="heroImg">
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <span class="block mb-6 tracking-[0.8em] uppercase text-xs opacity-0" id="heroSubtitle">Global Excellence</span>
+            <h1 class="text-5xl md:text-8xl font-bold mb-8 leading-tight opacity-0" id="heroTitle">
+                Architecture of <br><span class="italic font-light italic">Elegance</span>
+            </h1>
+            <div class="opacity-0 mt-8" id="heroBtn">
+                <a href="#properties" class="gold-bg text-black px-14 py-5 font-bold uppercase tracking-widest hover:invert transition duration-500 shadow-2xl">Enter Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 bg-[#0a0a0a] px-10 reveal">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class="relative">
+                <div class="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-gold opacity-30"></div>
+                <img src="https://images.unsplash.com/photo-1600607687940-4e5a99427c5e?auto=format&fit=crop&w=800&q=80" class="grayscale hover:grayscale-0 transition duration-1000">
+            </div>
+            <div>
+                <h2 class="text-5xl mb-8 italic">The Legacy of <br>Fine Living</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8">We don't just sell property; we curate the backdrop of your life's most meaningful moments. With 20 years of expertise in the ultra-high-net-worth market, our focus is absolute discretion.</p>
+                <button class="border border-white/20 px-10 py-4 uppercase text-xs tracking-[0.3em] hover:bg-white hover:text-black transition">Read Heritage</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="properties" class="py-32 px-10 bg-black reveal">
+        <div class="text-center mb-24">
+            <h2 class="text-4xl italic mb-4">The Portfolio</h2>
+            <div class="w-20 h-[1px] bg-gold mx-auto opacity-50"></div>
+        </div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="group cursor-pointer">
+                <div class="overflow-hidden aspect-[3/4] mb-6 relative">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" 
+                         class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                </div>
+                <h3 class="text-xl mb-1 tracking-widest uppercase">The Glass Pavilion</h3>
+                <p class="text-gold text-sm tracking-widest">$24,500,000</p>
+            </div>
+            <div class="group cursor-pointer md:mt-12">
+                <div class="overflow-hidden aspect-[3/4] mb-6 relative">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80" 
+                         class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                </div>
+                <h3 class="text-xl mb-1 tracking-widest uppercase">Villa Celeste</h3>
+                <p class="text-gold text-sm tracking-widest">$12,000,000</p>
+            </div>
+             <div class="group cursor-pointer">
+                <div class="overflow-hidden aspect-[3/4] mb-6 relative">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" 
+                         class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                </div>
+                <h3 class="text-xl mb-1 tracking-widest uppercase">Azure Penthouse</h3>
+                <p class="text-gold text-sm tracking-widest">$9,800,000</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-40 px-10 bg-white text-black reveal">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-6xl font-bold mb-10 leading-tight italic">Ready to begin your <br>next chapter?</h2>
+            <p class="text-gray-500 mb-12 text-xl font-light">Join our private registry for exclusive off-market opportunities.</p>
+            <form class="flex flex-col md:flex-row gap-4 justify-center">
+                <input type="email" placeholder="Email Address" class="bg-gray-100 p-5 w-full md:w-96 focus:outline-none border-b-2 border-transparent focus:border-gold transition">
+                <button class="bg-black text-white px-12 py-5 font-bold uppercase tracking-widest hover:bg-gold transition">Inquire</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center opacity-40 text-[10px] tracking-[0.5em] uppercase">
+        © 2026 Estate Elite International Realty
+    </footer>
+
+    <script>
+        // 1. Loader Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => { 
+                loader.style.display = 'none';
+                startHeroAnimations();
+            }, 1000);
+        });
+
+        // 2. Hero Section Entrance sequence
+        function startHeroAnimations() {
+            document.getElementById('heroImg').style.transform = 'scale(1)';
+            
+            const subtitle = document.getElementById('heroSubtitle');
+            const title = document.getElementById('heroTitle');
+            const btn = document.getElementById('heroBtn');
+
+            setTimeout(() => { subtitle.classList.add('animate__animated', 'animate__fadeInDown', 'opacity-100'); }, 300);
+            setTimeout(() => { title.classList.add('animate__animated', 'animate__fadeInUp', 'opacity-100'); }, 700);
+            setTimeout(() => { btn.classList.add('animate__animated', 'animate__fadeInUp', 'opacity-100'); }, 1200);
+        }
+
+        // 3. Scroll Reveal Logic (Intersection Observer)
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(section => {
+            observer.observe(section);
+        });
+
+        // 4. Navbar Background Logic
+        window.onscroll = () => {
+            const nav = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('bg-black/90', 'py-4', 'backdrop-blur-md');
+                nav.classList.remove('py-8');
+            } else {
+                nav.classList.remove('bg-black/90', 'py-4', 'backdrop-blur-md');
+                nav.classList.add('py-8');
+            }
+        };
+    </script>
+</body>
+</html>
+               
