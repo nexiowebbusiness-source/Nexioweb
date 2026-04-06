@@ -3,51 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESTATE ELITE | Premium Demo</title>
+    <title>AURA | Global Luxury India</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --gold: #d4af37; }
-        body { font-family: 'Montserrat', sans-serif; background: #050505; color: white; margin: 0; }
-        .brand { font-family: 'Cinzel', serif; color: var(--gold); }
-        .reveal { opacity: 0; transform: translateY(20px); transition: 1s all ease; }
+        :root { --gold: #c5a059; --dark: #050505; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark); color: white; margin: 0; overflow-x: hidden; }
+        h1, h2, h3, .brand { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+
+        /* Responsive Container */
+        .container-custom { width: 90%; max-width: 1400px; margin: 0 auto; }
+
+        /* Smooth Entrance */
+        #gate {
+            position: fixed; inset: 0; background: #000; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; items-center;
+            transition: transform 1.5s cubic-bezier(1, 0, 0, 1);
+        }
+
+        /* Animation Classes */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1.2s all ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        #loader { position: fixed; inset: 0; background: #000; z-index: 99; display: flex; justify-content: center; align-items: center; }
+
+        /* Google Maps Wrapper */
+        .map-container {
+            filter: grayscale(1) invert(1) contrast(1.2); /* Luxury Dark Mode Map */
+            opacity: 0.7;
+            transition: 0.5s;
+        }
+        .map-container:hover { filter: grayscale(0) invert(0); opacity: 1; }
+
+        /* Form Styling */
+        input, textarea {
+            background: transparent !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            color: white !important;
+            transition: 0.4s;
+        }
+        input:focus, textarea:focus { border-color: var(--gold) !important; outline: none; }
+        
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .ticker { display: flex; white-space: nowrap; animation: scroll 30s linear infinite; }
     </style>
 </head>
 <body>
-    <div id="loader"><h2 class="brand animate-pulse uppercase tracking-widest">Loading Experience...</h2></div>
 
-    <nav class="fixed w-full z-50 p-8 flex justify-between items-center bg-gradient-to-b from-black to-transparent">
-        <div class="brand text-xl tracking-widest font-bold">ESTATE ELITE</div>
-        <div class="space-x-6 text-[10px] uppercase tracking-widest hidden md:block">
-            <a href="#" class="hover:text-amber-500">Portfolio</a>
-            <a href="#" class="border border-amber-500 px-4 py-2 text-amber-500 hover:bg-amber-500 hover:text-black transition">Inquire Now</a>
+    <div id="gate">
+        <h1 class="brand text-2xl md:text-4xl tracking-[1em] text-[#c5a059]">AURA</h1>
+        <div class="w-24 h-[1px] bg-white/20 mt-4 overflow-hidden">
+            <div class="h-full bg-gold w-full animate-pulse"></div>
         </div>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-6 md:px-12 md:py-8 flex justify-between items-center bg-black/60 backdrop-blur-xl border-b border-white/5">
+        <div class="brand text-xl md:text-2xl font-bold tracking-[0.3em] text-[#c5a059]">AURA</div>
+        <div class="hidden lg:flex space-x-10 text-[10px] uppercase tracking-widest text-white/70">
+            <a href="#collection" class="hover:text-[#c5a059]">Properties</a>
+            <a href="#location" class="hover:text-[#c5a059]">Location</a>
+            <a href="#contact" class="hover:text-[#c5a059]">Contact</a>
+        </div>
+        <a href="#contact" class="border border-[#c5a059] text-[#c5a059] px-6 py-2 text-[10px] uppercase tracking-widest hover:bg-[#c5a059] hover:text-black transition">Inquire</a>
     </nav>
 
-    <section class="h-screen flex items-center justify-center relative overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40">
-        <div class="relative text-center px-4">
-            <h1 class="brand text-5xl md:text-8xl mb-6">Masterpieces</h1>
-            <p class="text-sm tracking-[0.5em] uppercase opacity-70 mb-10">Bespoke Real Estate Excellence</p>
-            <button class="bg-amber-600 text-black px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-white transition">Enter The Gallery</button>
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" 
+             class="absolute inset-0 w-full h-full object-cover opacity-40 scale-110" id="hero-img">
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-[8rem] font-bold mb-10 leading-none">ESTATE <br><span class="italic font-light">INDIA.</span></h1>
+            <p class="text-gold text-[10px] tracking-[0.8em] uppercase mb-12">The Zenith of Luxury Real Estate</p>
+            <a href="#collection" class="bg-white text-black px-12 py-5 text-[10px] uppercase font-bold tracking-widest hover:bg-gold transition">View Collection</a>
         </div>
     </section>
 
-    <section class="py-20 px-10 reveal max-w-5xl mx-auto text-center">
-        <h2 class="brand text-4xl mb-6 italic text-amber-500">The Gold Standard</h2>
-        <p class="text-gray-400 leading-relaxed">Experience a new era of luxury. We specialize in off-market properties for the world's most discerning clients.</p>
+    <section id="collection" class="py-24 md:py-40 px-6">
+        <div class="container-custom">
+            <div class="mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl italic font-light">Curated Inventory</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16" id="property-grid">
+                </div>
+        </div>
     </section>
 
+    <section id="location" class="py-24 bg-[#0a0a0a] px-6">
+        <div class="container-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-4 reveal">
+                    <span class="text-gold uppercase tracking-widest text-xs block mb-4">Visit Us</span>
+                    <h2 class="text-5xl italic mb-8">Headquarters</h2>
+                    <p class="text-gray-500 leading-loose mb-10">
+                        AURA India Private Office<br>
+                        Malcha Marg, Chanakyapuri<br>
+                        New Delhi, 110021
+                    </p>
+                    <div class="space-y-4">
+                        <p class="text-sm font-bold tracking-widest text-gold">+91 11 4900 88XX</p>
+                        <p class="text-sm text-gray-400 tracking-widest">concierge@aura.in</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 reveal h-[500px] w-full overflow-hidden border border-white/5 shadow-2xl">
+                    <div class="map-container w-full h-full">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14010.596639535973!2d77.177651034237!3d28.601133036496923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d78705051e7%3A0xc48c1e8a937a0942!2sChanakyapuri%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1714986543210!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 md:py-40 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-5xl italic mb-4">Request Callback</h2>
+                <p class="text-gray-500 tracking-widest text-[10px] uppercase">Strictly Private & Confidential</p>
+            </div>
+            <div class="bg-white/5 p-10 md:p-16 border border-white/10 reveal">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <input type="text" placeholder="Full Name" class="py-3">
+                    <input type="tel" placeholder="Mobile Number" class="py-3">
+                    <select class="bg-transparent border-b border-white/10 py-3 text-white md:col-span-2">
+                        <option class="bg-black">Portfolio View (₹10Cr+)</option>
+                        <option class="bg-black">Asset Management</option>
+                    </select>
+                    <button class="md:col-span-2 bg-[#c5a059] text-black py-6 font-bold uppercase tracking-widest text-xs hover:bg-white transition">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-20 border-t border-white/5 text-center">
+        <div class="brand text-3xl text-gold tracking-[0.5em] mb-8">AURA</div>
+        <p class="text-[9px] text-gray-700 uppercase tracking-[0.4em]">© 2026 Aura Realty India Group • Lutyens Delhi</p>
+    </footer>
+
     <script>
-        window.onload = () => {
-            document.getElementById('loader').style.display = 'none';
-        };
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        // Data & Logic
+        const properties = [
+            { id: 1, name: 'The Lutyens Manor', loc: 'New Delhi', prc: '₹145 Cr', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80' },
+            { id: 2, name: 'Oceanic Sky Villa', loc: 'Mumbai', prc: '₹85 Cr', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80' },
+            { id: 3, name: 'Heritage Estate', loc: 'Goa', prc: '₹22 Cr', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80' }
+        ];
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('gate').style.transform = 'translateY(-100%)';
+            }, 1000);
         });
+
+        const grid = document.getElementById('property-grid');
+        grid.innerHTML = properties.map(p => `
+            <div class="reveal group active">
+                <div class="overflow-hidden relative mb-6 aspect-[4/5]">
+                    <img src="${p.img}" class="w-full h-full object-cover grayscale transition-all duration-[2s] group-hover:grayscale-0 group-hover:scale-110">
+                </div>
+                <div class="flex justify-between items-center">
+                    <h4 class="text-xl italic font-light">${p.name}</h4>
+                    <span class="text-gold font-bold">${p.prc}</span>
+                </div>
+            </div>
+        `).join('');
+
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
     </script>
 </body>
 </html>
+
